@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pm2_5_term_project/home/widgets/notifications.dart';
-import 'package:pm2_5_term_project/home/widgets/attendance.dart';
-import 'package:pm2_5_term_project/home/widgets/time_table.dart';
+import 'package:pm2_5_term_project/home/widgets/details_show.dart';
+import 'package:pm2_5_term_project/home/widgets/search_page.dart';
 
-var kBottomBarBackgroundColor = Colors.purple[800];
+var kBottomBarBackgroundColor = Colors.green[600];
 var kBottomBarForegroundActiveColor = Colors.white;
 var kBottomBarForegroundInactiveColor = Colors.white60;
-var kSplashColor = Colors.purple[600];
+var kAppBarBackgroundColor = Colors.green[200];
+var kSplashColor = Colors.green[400];
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,19 +30,20 @@ class _HomePageState extends State<HomePage> {
     Widget _buildPageBody() {
       switch (_selectedIndex) {
         case 0:
-          return const Attendance();
-        case 1:
-          return const Attendance();
-        case 2:
           return const AppNotifications();
+        case 1:
+          return const DetailsShow();
+        case 2:
+          return const SearchPage();
         default:
-          return const Attendance();
+          return const DetailsShow();
       }
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HOME'),
+        title: Center(child: const Text('Real-time Air Quality Index (AQI)')),
+        backgroundColor: kAppBarBackgroundColor,
       ),
       floatingActionButton: SizedBox(
         width: 80.0,
@@ -51,8 +53,8 @@ class _HomePageState extends State<HomePage> {
           shape: CircleBorder(),
           onPressed: () {},
           child: AppBottomMenuItem(
-            iconData: Icons.check,
-            text: 'เช็คชื่อ',
+            iconData: _selectedIndex == 1 ? Icons.refresh : Icons.today,
+            text: _selectedIndex == 1 ? 'Refresh' : 'TODAY',
             isSelected: _selectedIndex == 1,
             onClick: () => _handleClickButton(1),
           ),
@@ -70,7 +72,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: AppBottomMenuItem(
                 iconData: Icons.schedule,
-                text: 'ตารางเรียน',
+                text: 'ข้อมูลย้อนหลัง',
                 isSelected: _selectedIndex == 0,
                 onClick: () => _handleClickButton(0),
               ),
@@ -78,8 +80,8 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 100.0),
             Expanded(
               child: AppBottomMenuItem(
-                iconData: Icons.notifications,
-                text: 'แจ้งเตือน',
+                iconData: Icons.search,
+                text: 'ค้นหาด้วยชื่อเมือง',
                 isSelected: _selectedIndex == 2,
                 onClick: () => _handleClickButton(2),
               ),
