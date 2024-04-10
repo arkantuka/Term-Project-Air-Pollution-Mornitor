@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pm2_5_term_project/home/widgets/notifications.dart';
+import 'package:pm2_5_term_project/home/widgets/history.dart';
 import 'package:pm2_5_term_project/home/widgets/details_show.dart';
 import 'package:pm2_5_term_project/home/widgets/search_page.dart';
 
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     Widget _buildPageBody() {
       switch (_selectedIndex) {
         case 0:
-          return const AppNotifications();
+          return const History();
         case 1:
           return const DetailsShow();
         case 2:

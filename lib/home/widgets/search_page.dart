@@ -6,7 +6,6 @@ import 'package:pm2_5_term_project/api/search_api.dart';
 import 'package:pm2_5_term_project/helpers/alert_dialog.dart';
 import 'package:pm2_5_term_project/model/daily_forecast.dart';
 import 'package:pm2_5_term_project/model/details.dart';
-import 'package:pm2_5_term_project/model/forecast_details.dart';
 import 'package:pm2_5_term_project/model/search_details.dart';
 
 class SearchPage extends StatefulWidget {
