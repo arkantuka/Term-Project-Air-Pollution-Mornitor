@@ -4,7 +4,12 @@ class ForecastDetails {
   final int? max;
   final int? min;
 
-  ForecastDetails({this.average, this.day, this.max, this.min});
+  ForecastDetails({
+    this.average,
+    this.day,
+    this.max,
+    this.min,
+  });
 
   factory ForecastDetails.fromJson(Map<String, dynamic> json) {
     return ForecastDetails(

@@ -6,16 +6,18 @@ import 'package:pm2_5_term_project/model/details.dart';
 import 'package:pm2_5_term_project/model/forecast_details.dart';
 
 class DetailsShow extends StatefulWidget {
-  const DetailsShow({super.key});
+  const DetailsShow({
+    super.key,
+  });
 
   @override
   State<DetailsShow> createState() => _DetailsShowState();
 }
 
 class _DetailsShowState extends State<DetailsShow> {
-  String defaultCity = 'bangkok';
   Details? _detailslog;
   ForecastDetails? _forecastDetails;
+  String defaultCity = 'bangkok';
 
   Future<void> _loadItems() async {
     try {
@@ -155,17 +157,6 @@ class _DetailsShowState extends State<DetailsShow> {
                   );
                 },
                 child: Text("Ozone"),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  await _loadForecastItems('uvi', 6);
-                  showOkDialog(
-                      context: context,
-                      title: 'PM 10 Today',
-                      message:
-                          'Date: ${_forecastDetails?.day}\nAverage: ${_forecastDetails?.average}\nMin: ${_forecastDetails?.min}\nMax: ${_forecastDetails?.max}');
-                },
-                child: Text("UVI"),
               ),
             ],
           ),
